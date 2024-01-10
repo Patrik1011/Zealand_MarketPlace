@@ -1,0 +1,105 @@
+﻿* {
+    box-sizing: border-box;
+    font-size: 102%;
+}
+
+.form-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+form input {
+    width: 100%;
+    padding: 8px 8px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#submit {
+    cursor:pointer;
+    width: auto;
+    height: 40px;
+    transition: 0.5s;
+}
+
+#submit:hover {
+    opacity: 0.8;
+}
+
+span.text-danger {
+    color: red;
+}
+
+form button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #4AD188;
+    border-radius: 5px;
+    color: #F1F3F8;
+    border: none;
+    cursor: pointer;
+    transition: 1s;
+}
+
+form button:hover {
+    background-color: #289d5e;
+}
+
+.form-container h4 {
+    text-align: center;
+}
+
+.info {
+    text-decoration: none;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+
+.options-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.options-container ul{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.options-container ul > li > a{
+    margin-right: 20px;
+    color: #1d2124;
+    text-decoration: none;
+}
+
+.options-container ul > li > a:hover{
+    color: rgba(29, 33, 36, 0.82);
+}
+
+.delete-item-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

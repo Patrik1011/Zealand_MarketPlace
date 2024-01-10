@@ -1,0 +1,89 @@
+﻿@page
+@model ZealandMarketPlace.Areas.Identity.Pages.Account.Manage.UpdateItem
+@{
+    Layout = "/Pages/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/headline.css">
+<link rel="stylesheet" href="~/css/addUpdateItem.css">
+
+<div class="headline">
+    <p>UPDATE ITEM</p>
+</div>
+
+
+<form method="post" asp-page="UpdateItem" id="first" class="container" enctype="multipart/form-data">
+  <div class="item_form_container">
+    
+    <input asp-for="@Model.Item.ItemId" id="itemId" type="hidden"> 
+    <input asp-for="@Model.Item.UserId" id="userId" type="hidden"> 
+    <input asp-for="@Model.Item.ImageData" id="imageData" type="hidden"> 
+    <input asp-for="@Model.Item.DateTime" id="dateTime" type="hidden">
+
+    <div>
+      <div class="form_block">
+        <label asp-for="@Model.Item.Name" class="heading"></label>
+        <input asp-for="@Model.Item.Name" class="text_input" placeholder="Name" type="text">
+      </div>
+    </div>
+
+    <div>
+      <div class="form_block">
+        <label asp-for="@Model.Item.Descritpion" class="heading"></label>
+        <textarea asp-for="@Model.Item.Descritpion" class="text_input" placeholder="Describe your product" rows="4" cols="50">Describe your product</textarea>
+      </div>
+    </div>
+
+    <div>
+      <div class="form_block">
+        <label asp-for="@Model.Item.Price" class="heading"></label>
+        <input asp-for="@Model.Item.Price" class="text_input" placeholder="Price in dkk" type="number">
+      </div>
+    </div>
+
+    <div>
+      <div class="form_block">
+        <label asp-for="@Model.Item.Category" class="heading"></label>
+
+        <select asp-for="@Model.Item.Category" asp-items="Html.GetEnumSelectList<Category>()" class="text_input">
+          <option selected="selected" value="">Please select category</option>
+        </select>
+      </div>
+    </div>
+
+    <div>
+      <div class="form_block">
+        <label asp-for="@Model.Item.Status" class="heading"></label>
+
+        <select asp-for="@Model.Item.Status" asp-items="Html.GetEnumSelectList<Status>()" class="text_input">
+          <option selected="selected" value="">Please select status</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form_block">
+      <label class="heading">Update Image</label>
+      <div class="photo_container"> 
+         @if (@Model.Item.ImageData == null) 
+           { 
+               <img class="photo" alt="photo" src=""> 
+           } 
+           else 
+           { 
+              <img class="photo" alt="photo" src="data:image/png;base64,@Convert.ToBase64String(@Model.Item.ImageData)"> 
+           }
+      </div> 
+      
+      <input type="file" id="file1"
+             name="file1"
+             accept="image/png, image/gif, image/jpeg"/>
+    </div>
+
+    <div class="button_container">
+      <button class="update_button" type="submit" alt="Update">Update</button>
+    </div>
+
+  </div>
+ </form>
+
+

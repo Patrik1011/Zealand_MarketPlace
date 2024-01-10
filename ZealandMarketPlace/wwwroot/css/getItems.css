@@ -1,0 +1,17 @@
+﻿div.item-container {
+    margin-right: 30px;
+}
+
+div.item-container img{
+    width: 200px;
+    height: 250px;
+}
+
+div.products-container {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+div.main-container {
+}

@@ -1,0 +1,43 @@
+.headline{
+    width: 100%;
+    margin-top: 25px;
+    display: flex;
+    padding: 0 20px;
+    justify-content: center;
+}
+
+.headline p{
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 35px;
+    color: #3174CC;
+}
+
+.headline_index{
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    padding: 0 20px;
+    justify-content: center;
+}
+
+.headline_index p{
+    font-size: 60px;
+    color: #3174CC;
+}
+
+@media screen and (max-width: 430px) {
+    .headline_index p{
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 250px) {
+    .headline p {
+        font-size: 30px;
+    }
+
+    .headline_index p{
+        font-size: 30px;
+    }
+}

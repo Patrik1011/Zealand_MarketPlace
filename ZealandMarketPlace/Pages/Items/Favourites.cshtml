@@ -1,0 +1,54 @@
+﻿@page
+@model ZealandMarketPlace.Pages.Items.FavouritesModel
+@{
+    ViewData["Title"] = "Favourites";
+}
+
+<link rel="stylesheet" href="~/css/index.css">
+<link rel="stylesheet" href="~/css/headline.css">
+
+
+<div class="headline">
+    <p>FAVOURITES</p>
+</div>
+
+
+<main>
+    <section class="card_section">
+        @foreach (var item in Model.Items)
+        {
+            <div class="card_container">
+                <div class="card_image">
+                    @if (@item.ImageData == null)
+                    {
+                         <img class="photo" alt="defaultPhoto" src="~/images/defaultPhoto.jpg">
+                    }
+                    else
+                    {
+                        <img alt="photo" src="data:image/png;base64,@Convert.ToBase64String(item.ImageData)">
+                    }
+
+                </div>
+
+
+                <div class="card_text_content">
+                    <div class="card_title">
+                        <p class="text--medium">
+                            @item.Name
+                        </p>
+                        <p class="text--medium text_bold">
+                            @item.Price dkk
+                        </p>
+                    </div>
+                    <div class="card_info">
+                        <p class="text--medium">@item.Status</p>
+                        <a asp-page="/Items/ItemDetails" asp-route-id="@item.ItemId" class="button_details">Details</a>
+                    </div>
+
+                </div>
+            </div>
+        }
+
+
+    </section>
+</main>

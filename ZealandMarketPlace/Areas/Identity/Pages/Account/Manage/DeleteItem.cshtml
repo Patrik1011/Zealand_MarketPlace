@@ -1,0 +1,15 @@
+﻿@page
+@model ZealandMarketPlace.Areas.Identity.Pages.Account.Manage.DeleteItem
+
+@{
+    Layout = "Manage/_Layout";
+}
+
+<div class="delete-item-container">
+    <form method="post" asp-page="DeleteItem">
+        <input asp-for="@Model.ItemId" id="itemId" type="hidden">
+        <span>Are you sure you want to delete this item?</span>
+        <button asp-page="./Index" id="submitNo" >No</button>
+        <button id="submit" type="submit" alt="Add">Yes</button>
+    </form>
+</div>

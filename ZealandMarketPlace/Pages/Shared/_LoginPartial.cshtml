@@ -1,0 +1,49 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    if (!User.IsInRole("Administrator"))
+    {
+        @if (!User.IsInRole("Subscriber"))
+        {
+            <li>
+                <a asp-page="/Contacts">Contacts</a>
+            </li>
+        }
+
+        <li>
+            <a asp-page="/Items/Favourites">My Favourites</a>
+        </li>
+        <li>
+            <a asp-page="/Items/AddItem">Add Item</a>
+        </li>
+    }
+
+    <li>
+        <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+            @if (User.IsInRole("Subscriber"))
+            {
+                <p>profile(subscriber)</p>
+            }
+            else
+            {
+                <p>profile</p>
+            }
+        </a>
+    </li>
+
+    <li>
+        <a asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post" type="submit">Logout</a>
+    </li>
+}
+else
+{
+    <li>
+        <a asp-area="Identity" asp-page="/Account/Register">Register</a>
+    </li>
+    <li>
+        <a asp-area="Identity" asp-page="/Account/Login">Login</a>
+    </li>
+}

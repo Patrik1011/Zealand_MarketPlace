@@ -1,0 +1,13 @@
+﻿#update-form form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.update-form-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}

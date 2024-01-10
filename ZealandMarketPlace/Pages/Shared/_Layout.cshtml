@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - ZealandMarketPlace</title>
+    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/> *@
+    <link rel="stylesheet" href="~/css/site.css"/>
+    <link rel="stylesheet" href="~/css/login.css"/>
+    <link rel="stylesheet" href="~/css/details.css"/>
+    <link rel="stylesheet" href="~/css/register.css">
+    <link rel="stylesheet" href="~/css/navigation.css">
+    <link rel="stylesheet" href="~/css/addItem.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script type="text/javascript" src="~/js/navigation.js"></script>
+
+</head>
+<body>
+<header>
+    <nav>
+            <div>
+                <a class="logo_nav" asp-page="/Index"><img class="logo" src="~/images/logo.png" alt="logo"/></a>
+                <label id="icon">
+                    <span class="fa fa-bars"></span>
+                </label>
+            </div>
+    
+            <ul>
+                    <li><a asp-page="/Index" class="active">Home</a></li>
+                    <partial name="_LoginPartial" />
+            </ul>
+        </nav>
+</header>
+@RenderBody()
+
+<footer class="border-top footer text-muted">
+    <div class="container_footer">
+        &copy; 2022 - ZealandMarketPlace
+    </div>
+</footer>
+
+
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

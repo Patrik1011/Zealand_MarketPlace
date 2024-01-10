@@ -1,0 +1,69 @@
+﻿@page
+@model ZealandMarketPlace.Pages.Items.AddItemModel
+
+<link rel="stylesheet" href="~/css/headline.css">
+<link rel="stylesheet" href="~/css/addUpdateItem.css">
+
+<div class="headline">
+    <p>ADD ITEM</p>
+</div>
+
+
+<form method="post" asp-page="AddItem" id="first" class="container" enctype="multipart/form-data">
+   <div class="item_form_container">
+
+     <div>
+       <div class="form_block">
+         <label asp-for="@Model.Item.Name" class="heading"></label>
+         <input asp-for="@Model.Item.Name"  class="text_input" placeholder="Name" type="text">
+       </div>
+     </div>
+
+     <div>
+       <div class="form_block">
+         <label asp-for="@Model.Item.Descritpion" class="heading"></label>
+         <textarea asp-for="@Model.Item.Descritpion" class="text_input" placeholder="Describe your product" rows="4" cols="50">Describe your product</textarea>
+       </div>
+     </div>
+
+     <div>
+       <div class="form_block">
+         <label asp-for="@Model.Item.Price" class="heading"></label>
+         <input asp-for="@Model.Item.Price" class="text_input"  placeholder="Price in dkk" type="number">
+       </div>
+     </div>
+        
+     <div>
+       <div class="form_block">
+         <label asp-for="@Model.Item.Category" class="heading"></label>
+            
+         <select asp-for="@Model.Item.Category" asp-items="Html.GetEnumSelectList<Category>()" class="text_input">
+           <option selected="selected" value="">Please select category</option>
+         </select>
+       </div>
+     </div>
+
+     <div>
+       <div class="form_block">
+         <label asp-for="@Model.Item.Status" class="heading"></label>
+            
+         <select asp-for="@Model.Item.Status" asp-items="Html.GetEnumSelectList<Status>()" class="text_input">
+           <option selected="selected" value="">Please select status</option>
+         </select>
+       </div>
+     </div>
+
+     <div class="form_block" >
+       <label class="heading">Upload Image</label>
+       <input type="file" id="file1"
+              name="file1"
+              accept="image/png, image/gif, image/jpeg"/>
+     </div>
+     
+      <div class="button_container">    
+          <button alt="Add">Add item</button>
+      </div>
+         
+   </div>
+ </form>
+  

@@ -1,0 +1,51 @@
+@page
+@model ZealandMarketPlace.Pages.Contacts
+
+<link rel="stylesheet" href="~/css/contacts.css">
+<link rel="stylesheet" href="~/css/headline.css">
+
+
+<div class="headline">
+    <p>CONTACTS</p>
+</div>
+
+<main>
+    <section class="card_section">
+        @foreach (var user in Model.UsersContacts)
+        {
+
+                <div class="card_container">
+
+                    <div class="card_text_content">
+
+                        <div class="card_info">
+                            <p class="text--medium">
+                                <b>Email:</b> @user.Email
+                            </p>
+                        </div>
+
+                        <div class="card_info">
+                            <p class="text--medium">
+                                <b>Number:</b> @user.PhoneNumber
+                            </p>
+                        </div>
+
+                        <div class="card_info">
+                            <p class="text--medium">
+                                <b>Name:</b> @user.NormalizedUserName
+                            </p>
+                        </div>
+                        
+                        <div class="card_button_items">
+                            <a asp-page="/Items/UsersItems" asp-route-userId="@user.Id">See user items</a>
+                        </div>
+
+
+                    </div>
+                </div>
+        }
+
+
+    </section>
+
+</main>

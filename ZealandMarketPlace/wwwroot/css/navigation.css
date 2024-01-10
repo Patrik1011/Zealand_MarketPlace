@@ -1,0 +1,181 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+
+body {
+    font-family: 'Courier Prime', monospace;
+    word-spacing: -4px;
+    text-decoration: none;
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+
+/*Navigation*/
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 110px;
+    width: 100%;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+
+nav > div{
+    width: auto;
+}
+
+.logo{
+    height: 50px;
+    width: auto;
+}
+
+
+nav li {
+    display: inline-block;
+    margin: 0 8px;
+    line-height: 80px;
+}
+
+nav a {
+    color: #26282E;
+    font-size: 18px;
+    text-transform: lowercase;
+}
+
+a:hover{
+    color: #6FB0F1;
+
+}
+
+a.active{
+    color: #3174CC;
+}
+
+#icon{
+    color:#707070;
+    font-size: 30px;
+    margin-right: 40px;
+    line-height: 80px;
+    float: right;
+    cursor:pointer;
+    display: none;
+}
+
+
+.container_footer{
+    display: flex;
+    justify-content: center;
+    background: #F1F3F8;
+
+}
+
+
+@media screen and (max-width: 1260px){
+    .logo
+    {
+        height: 50px;
+        width: auto;
+    }
+
+
+    nav a{
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 1100px){
+    /*.logo{
+        font-size: 32px;
+      }
+    */
+
+    nav a{
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 937px){
+
+}
+
+@media screen and (max-width: 909px){
+    nav #icon{
+
+        display:block;
+    }
+
+    .logo,
+    .logo_nav{
+        margin-left: 3%;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+
+    nav > div {
+        width: 100%;
+        min-height: 110px;
+        background-color: #fff;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    nav ul{
+        padding-top: 20px;
+        padding-bottom: 20px ;
+        width: 100%;
+        position:absolute;
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+        background-color: #fff;
+        z-index: 7;
+        top: -100%;
+        left: 0;
+        text-align: center;
+        transition:  0.5s ease-out;
+    }
+
+    nav ul.navigation{
+        top: 80px;
+
+    }
+
+    nav li{
+        margin-top: 4px;
+        line-height: 40px;
+        display: block;
+    }
+
+    nav a{
+        font-size: 20px;
+    }
+
+}
+
+@media screen and (max-width: 340px){
+    #icon{
+        margin-right: 20px;
+        font-size: 25px;
+    }
+
+
+
+    nav > div{
+        min-height: 90px;
+
+    }
+
+    .logo{
+        height: 40px;
+    }
+}

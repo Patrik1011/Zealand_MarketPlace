@@ -1,0 +1,171 @@
+﻿@page
+@using ZealandMarketPlace.Models
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model ZealandMarketPlace.Pages.Items.ItemDetailsModel
+@{
+}
+<link rel="stylesheet" href="~/css/contacts.css">
+<link rel="stylesheet" href="~/css/headline.css">
+<script src="https://kit.fontawesome.com/671f3bdf44.js"></script>
+
+<div class="card_details_container">
+    <div class="card">
+
+        <div class="image_card_container">
+            <div class="image_card">
+                @if (@Model.Item.ImageData == null)
+                {
+                    <img class="photo" alt="defaultPhoto" src="~/images/defaultPhoto2.png">
+                }
+                else
+                {
+                    <img src="data:image/png;base64,@Convert.ToBase64String(Model.Item.ImageData)" alt="image">
+                }
+            </div>
+
+        </div>
+
+        <div class="product_details_content">
+
+            <div class="headline_page">
+                <a asp-page="/Index" class="">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+                <h2 class="product_headline">@Model.Item.Name</h2>
+            </div>
+
+            <div class="product_info_detail">
+                <div class="about_item">
+                    <h2>about this item: </h2>
+                    <p>@Html.DisplayFor(model => model.Item.Descritpion)</p>
+                </div>
+
+                <table>
+                    <tr>
+                        <td class="element_box">@Html.DisplayNameFor(model => model.Item.Name):</td>
+                        <td>@Html.DisplayFor(model => model.Item.Name)</td>
+                    </tr>
+                    <tr>
+                        <td class="element_box">@Html.DisplayNameFor(model => model.Item.Status):</td>
+                        <td>@Html.DisplayFor(model => model.Item.Status)</td>
+                    </tr>
+                    <tr>
+                        <td class="element_box">@Html.DisplayNameFor(model => model.Item.Category):</td>
+                        <td>@Html.DisplayTextFor(model => model.Item.Category)</td>
+                    </tr>
+                    <tr>
+                        <td class="element_box">@Html.DisplayNameFor(model => model.Item.Price):</td>
+                        <td>@Html.DisplayFor(model => model.Item.Price)dkk</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="contact_box">
+                @{
+                    if (Model.BoughtContacts.Contains(Model.Item.UserId)|| User.IsInRole("Subscriber"))
+                    {
+                        <div class="card_container">
+
+                            <div class="card_text_content">
+
+                                <div class="card_info">
+                                    <p class="text--medium">
+                                        <b>Email:</b> @Model.Owner.Email
+                                    </p>
+                                </div>
+
+                                <div class="card_info">
+                                    <p class="text--medium">
+                                        <b>Number:</b> @Model.Owner.PhoneNumber
+                                    </p>
+                                </div>
+
+                                <div class="card_info">
+                                    <p class="text--medium">
+                                        <b>Name:</b> @Model.Owner.NormalizedUserName
+                                    </p>
+                                </div>
+                        
+                                <div class="card_button_items">
+                                    <a asp-page="/Items/UsersItems" asp-route-userId="@Model.Owner.Id">See user items</a>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <form method="post">
+                            <input asp-for="@Model.OwnerId" value="@Model.Item.UserId" hidden="hidden"/>
+
+                            <button type="submit" class="button_contact">Buy Contact</button>
+                        </form>
+                    }
+                }
+
+                <form method="post" asp-page-handler="Favourite">
+                    <input asp-for="@Model.ItemId" value="@Model.Item.ItemId" hidden="hidden"/>
+                    <button type="submit" class="button_contact">
+                        @{
+                            if (Model.FavouriteItems.Contains(Model.Item.ItemId))
+                            {
+                                <i class="fa-solid fa-heart"></i>
+                            }
+                            else
+                            {
+                                <i class="fa-regular fa-heart"></i>
+                            }
+                        }
+                    </button>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="review_container">
+    <div class="review_box">
+        @{
+            if (Model.BoughtContacts.Contains(Model.Item.UserId) || User.IsInRole("Subscriber"))
+            {
+                <form method="post" asp-page-handler="Review">
+                    <input type="text" asp-for="@Model.Review.ReceiverId" value="@Model.Item.UserId" hidden="hidden">
+                    <input type="number" asp-for="@Model.ItemId" value="@Model.Item.ItemId" hidden="hidden">
+                    <textarea asp-for="@Model.Review.ReviewText" id="reviewTest" placeholder="Write your review"></textarea>
+                    <div class="form_review">
+                        <select class="classic" asp-for="@Model.Review.Rating" asp-items="Html.GetEnumSelectList<Rating>()">
+                            <option selected="selected" value="">How many stars you will give?</option>
+                        </select>
+                    </div>
+                    <div class="button_area">
+                        <input type="submit" class="review_button" value="Submit"/>
+                    </div>
+                </form>
+            }
+            else
+            {
+                <h2>To write a review, you need to buy the contact first</h2>
+            }
+        }
+    </div>
+</div>
+
+<div class="review_headline">
+    <p>Seller's REVIEWS</p>
+</div>
+
+<div class="review_list_container">
+    <div class="review_list">
+        @foreach (var review in Model.Reviews)
+        {      
+            <div class="review_list_box">
+                <p>@review.ReviewText</p>
+                <p><b>Number of stars:</b> <span class="review_text">@review.Rating</span></p>
+            </div>
+            <hr class="review_line"/>
+        }
+    </div>
+</div>

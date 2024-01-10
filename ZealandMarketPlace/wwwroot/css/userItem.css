@@ -1,0 +1,22 @@
+.review_headline{
+    width: 100%;
+    margin-top: 25px;
+    display: flex;
+    padding: 0 20px;
+    justify-content: center;
+    
+}
+
+.review_headline p{
+    word-wrap: break-word;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 35px;
+    color: #3174CC;
+}
+
+@media screen and (max-width: 600px) {
+    .review_headline p{
+        font-size: 25px;
+    }
+}

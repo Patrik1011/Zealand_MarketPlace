@@ -1,0 +1,22 @@
+@page
+@model ZealandMarketPlace.Areas.Identity.Pages.Account.Manage.ManageSubscription
+
+
+@{
+    ViewData["Title"] = "ManageSubscription";
+    ViewData["ActivePage"] = ManageNavPages.ManageSubscription;
+}
+<main class="form-container">
+    <h4 class="form-title">@ViewData["Title"]</h4>
+        @if (User.IsInRole("Subscriber"))
+        {
+            <h5>You already have the subscription</h5>
+        }
+        else
+        {
+            <form method="post" asp-page="ManageSubscription">
+                <button type="submit">Buy Subscription</button>
+            </form>
+        }
+        
+</main>

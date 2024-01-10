@@ -1,0 +1,144 @@
+
+.container {
+    width:61%;
+    margin: 0 auto 100px auto;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.10), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+    background:#fff;
+    border-radius: 20px;
+}
+
+.item_form_container {
+    padding:30px 40px;
+   
+}
+
+.form_block{
+    margin-bottom:20px;
+}
+
+.form_block textarea
+{
+   padding-top: 10px;
+    min-height: 70px;
+}
+
+.text_input{
+    resize: vertical;
+}
+
+.item_form_container .heading{
+    color:#3174CC;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.text_input {
+    font-size: 14px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 34px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #78899F;
+    text-align: left;
+    border: 1px solid #d6d6d6;
+    border-radius: 4px;
+    background: white;
+    outline: none;
+}
+
+input[type="file"] {
+    display: block;
+    outline: none;
+    cursor:pointer;
+    color: #78899F;
+    font-size: 14px;
+}
+
+.photo_container{
+    width: 100%;
+    display:flex;
+    justify-content: center;
+}
+
+.button_container{
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.button_container button{
+    margin-top: 10px;
+    font-size: 17px;
+    width: 30%;
+    padding: 10px;
+    background-color: #4AD188;
+    border-radius: 5px;
+    color: #F1F3F8;
+    border: none;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.button_container .update_button{
+    margin-top: 10px;
+    font-size: 17px;
+    width: 30%;
+    padding: 10px;
+    border-radius: 5px;
+    color: #F1F3F8;
+    border: none;
+    cursor: pointer;
+    background-color: #F2286D;
+
+}
+
+.button_container button:hover {
+    background-color: #289d5e;
+}
+
+.button_container .update_button:hover {
+    background-color: #ea0e59;
+}
+
+
+
+::placeholder { 
+    color: #78899F;
+}
+
+:-ms-input-placeholder { 
+    color: #78899F;
+}
+
+::-ms-input-placeholder { 
+    color: #78899F;
+}
+
+@media only screen and (max-width: 909px) {
+    .container{
+    width:81%;
+    }
+
+    .button_container button,
+    .button_container .update_button{
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .container{
+        width:95%;
+    }
+
+    .button_container button,
+    .button_container .update_button{
+        width: 70%;
+    }
+
+    .item_form_container {
+        padding:30px 20px;
+
+    }
+}
